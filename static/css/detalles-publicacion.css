@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+body{
+    margin: 0%;
+    padding: 0%;
+    padding-top: 68px;
+}
+
+.nav{
+    background-color: #76B91A;
+    height: 65px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+
+.nav img{
+    width: 188px;
+    height: 44px;
+}
+
+.home {
+    display: inline-block;
+    padding: 11px 16px 6px;
+}
+
+.home:hover {
+    background: rgba(138, 138, 138, 0.5);
+    
+}
+
+#search-bar{
+    display: inline-block;
+    margin: auto;
+    position: absolute;
+    margin: 19px 10px 19px 18%;
+    padding: 3px;
+    border-radius: 50px;
+    width: 36%;
+    background: url('../images/search-icon.png') no-repeat 9px #fff;
+}
+
+#search-bar:hover{
+    box-shadow: 0px 0px 5px #005736;
+}
+
+#input-search-bar{
+    margin: 0px;
+    padding: 0px;
+    margin-left: 32px;
+    border: none;
+    outline: none;
+    width: 87%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+    float: right;
+    width: 200px;
+    height: 65px;
+    margin: 0px;
+    display: table;
+}
+
+.nombre-usuario{
+    margin: 0px 0px 17px 0px;
+    float: right;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.foto-usuario{
+    width: 80px;
+    height: 65px;
+    display: table-cell;
+}
+
+.foto-usuario img{
+    width: 62%;
+    height: auto;
+    margin-left: 12%;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    border-radius: 60px;
+    border: solid;
+    border-color: #fff;
+}
+
+.border-line{
+    background-color: #6ba61b;
+    width: 100%;
+    height: 3px; 
+}
+
+.box{
+    width: 65%;
+    height: 650px;
+    margin:auto;
+    margin-top: 1%;
+}
+
+.informacion-usuario{
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+    height: 100px;
+    display: table;
+}   
+
+.informacion-usuario img{
+    display: inline-block;
+    width: 85px;
+    height: auto;
+    border-radius: 50px;
+    margin: 0%;
+}
+
+
+.nombre-fecha{  
+    vertical-align: top;
+    display: inline-block;  
+    margin-left: 12px;
+    margin-top: 0px
+}
+
+.nombre_publicador{
+    margin: 15px 0px 0px 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+
+.fecha_publicacion{
+    margin: 1px 0px 0px 2px;
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.cont{
+    width: 100%;
+    height: 550px;
+
+    display: flex;
+}
+
+
+.publicacion{
+    width: 600px;
+    height: 550px;
+}
+
+.publicacion img{
+    width: 550px;
+    height: auto;
+}
+
+.comment_section{
+    margin: 0px 0px 0px 0px;
+    width: 470px;    
+    height: 550px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.datos-publicacion{
+    width: 470px;
+    height: 70px;
+    display: flexbox;
+}
+.iconos img{
+    width: 59px;
+    height: auto;
+}
+
+.iconos{
+    width: 470px;
+    height: 40px;
+    display: flex;
+}
+
+#corazon{
+    width: 41px;
+    height: auto;
+    margin-left: 25px;
+}
+
+#comentarios{
+    width: 41px;
+    height: auto;
+    margin-left: 35px;
+}
+
+.datos{
+    width: 100%;
+    height: 30px;
+    display: flex;
+}
+
+
+#cantidad_likes{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 35px;
+}
+
+#cantidad_comentarios{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 68px;  
+}
+
+.division{
+    width: 445px;
+    height: 3px;
+    background-color: #000;
+    margin-left: 25px;
+}
+
+.comentarios-publicados{
+    width: 100%;
+    height: 390px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.box-comment{
+    width: 445px;
+    height: 50px;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+.perfil-comentario{
+    width: 100%;
+}
+
+.box-comment img{
+    display: inline-block;
+    width: 50px;
+    height: auto;
+    border-radius: 50px;
+    margin: 0%;
+}
+
+
+.nombre-comentario{  
+    vertical-align: top;
+    display: inline-block;  
+    margin-left: 12px;
+    margin-top: 0px
+}
+
+.comentario-nombre{
+    margin: 0px 0px 0px 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    
+}
+
+.comentario-contenido{
+    margin: 1px 0px 0px 2px;
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.caja-de-comentario{
+    margin: 14px 0px 0px 0px;
+    width: 100%;
+    height: 75px;
+}
+
+.escribir-comentario{
+    width: 437px;
+    height: 50px;
+    margin-left: 25px;
+    outline: none;
+}
+
+.escribir-comentario::placeholder{
+    color:#8f8f8f;
+    font-family: 'Open Sans', sans-serif;
+    font: bold;
+    font-size: 120%;
+}
