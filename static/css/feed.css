@@ -93,7 +93,6 @@ body{
     height: 3px; 
 }
 
-
 .ventana{
     background-color: #ffffff;
     width: 100%;
@@ -106,32 +105,13 @@ body{
     margin-left: 6%;
 }
 
-.maquina-de-escribir h1{
+#texto{
     float: left;
     color: #000;
-    position: relative;
     font-family: 'Open Sans', sans-serif;
     font-size: 30px;
     font-weight: 100;
     cursor: pointer;
-}
-
-.maquina-de-escribir h1 span{
-    position: absolute;
-    right: 0;
-    width: 0;
-    background-color: #fff;
-    border-left: 2px solid #000;
-    animation: maquina 4s steps(56);
-}
-
-@keyframes maquina {
-    from{
-        width: 100%;
-    }
-    to{
-        width: 0;
-    }
 }
 
 .box{

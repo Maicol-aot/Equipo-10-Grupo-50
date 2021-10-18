@@ -164,9 +164,11 @@ body{
 
 .datos-publicacion{
     width: 470px;
-    height: 70px;
+    height: 60px;
     display: flexbox;
+    margin: 0%;
 }
+
 .iconos img{
     width: 59px;
     height: auto;
@@ -174,20 +176,22 @@ body{
 
 .iconos{
     width: 470px;
-    height: 40px;
-    display: flex;
+    height: 30px;
+    display: flex;    
 }
 
 #corazon{
-    width: 41px;
-    height: auto;
-    margin-left: 25px;
+    width: 30px;
+    height: 30px;
+    margin-left: 29px;
+    cursor: pointer;
 }
 
 #comentarios{
-    width: 41px;
-    height: auto;
+    width: 30px;
+    height: 30px;
     margin-left: 35px;
+    cursor: pointer;
 }
 
 .datos{
@@ -202,25 +206,28 @@ body{
     padding: 0px;
     font-family: 'Open Sans', sans-serif;
     margin-left: 35px;
+    font-size: 15px;
 }
 
 #cantidad_comentarios{
     margin: 0px;
     padding: 0px;
     font-family: 'Open Sans', sans-serif;
-    margin-left: 68px;  
+    font-size: 15px;
+    margin-left:55px;  
 }
 
 .division{
-    width: 445px;
-    height: 3px;
+    width: 393px;
+    height: 2px;
     background-color: #000;
     margin-left: 25px;
+    margin-bottom: 0px;
 }
 
 .comentarios-publicados{
-    width: 100%;
-    height: 390px;
+    width: 89%;
+    height: 398px;
     margin-top: 0px;
     margin-bottom: 0px;
     margin-right: 0px;
@@ -233,7 +240,8 @@ body{
     width: 445px;
     height: 50px;
     margin-left: 25px;
-    margin-top: 25px;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .perfil-comentario{
@@ -273,18 +281,20 @@ body{
     margin: 14px 0px 0px 0px;
     width: 100%;
     height: 75px;
+    /*background-color: #8f8f8f;*/
 }
 
 .escribir-comentario{
-    width: 437px;
+    width: 390px;
     height: 50px;
     margin-left: 25px;
     outline: none;
+    resize: none;
 }
 
 .escribir-comentario::placeholder{
     color:#8f8f8f;
     font-family: 'Open Sans', sans-serif;
     font: bold;
-    font-size: 120%;
+    font-size: 12px;
 }
