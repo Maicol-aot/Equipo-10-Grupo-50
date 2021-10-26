@@ -102,7 +102,7 @@ body{
 
 .maquina-de-escribir{
     margin: auto;
-    margin-left: 6%;
+    margin-left: 5%;
 }
 
 #texto{
@@ -119,9 +119,9 @@ body{
     margin: auto;
     margin-top: 40px;
     margin-bottom: 2%;
-    margin-left: 86px;
+    margin-left: 5%;
     width: 26%;
-    height: 400px;
+    height: 500%;
     border-radius: 10px;
     border: solid #b8b7b7;
 }
@@ -134,7 +134,7 @@ body{
 }
 
 .usuario img{
-    width: 50px;
+    width: 14%;
     height: auto;
     border-radius: 50px;
     border: solid;
@@ -142,24 +142,27 @@ body{
 }
 
 .usuario p{
-    margin-top: 15px;
+    margin-top: 3%;
     margin-left: 5px;
     display: inline-block;
     vertical-align: top;
     font-family: 'Open Sans', sans-serif;
+    font-size: 100%;
     color: #000;
 }
 
 .publicacion{
     width: 90%;
-    height: 75%;
+    height: 0%;
+    padding: 0%;
     margin-left: 5%;
     margin-top: 0%;
+    margin-bottom: 5%;
     overflow: hidden;
     
 }
 
 .publicacion img{
-   width: 374px; 
-   height: 374;
+   width: 100%; 
+   height: auto;
 }
