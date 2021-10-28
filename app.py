@@ -1,6 +1,9 @@
-from flask import Flask, render_template, request, flash
+import os
+from flask import Flask, render_template, request, flash, redirect
+from flask.json import jsonify
 
 app=Flask(__name__)
+app.secret_key=os.urandom(24)
 
 @app.route("/", methods=["GET"])
 def inicio():
@@ -8,7 +11,23 @@ def inicio():
 
 @app.route("/sign_up", methods=["GET", "POST"])
 def signup():
-    return render_template('/sign_up.html')
+    if request.method=="POST":
+        nombre=request.form['nombre']
+        apellido=request.form['apellido']
+        email=request.form['email']
+        password=request.form['password']
+        sexo=request.form['sexo']
+        edad=request.form['edad']
+
+        if len(password) < 8:
+            print('no es valido')
+            error="La contaseña debe contener minimo 8 caracteres"
+            return(error)
+
+        return jsonify({'nombre':nombre, 'apellido':apellido, 'email':email, 'password':password, 'sexo':sexo, 'edad': edad})
+    else:
+        return render_template('sign_up.html')
+    
 
 @app.route("/sign_in", methods=["GET", "POST"])
 def login():

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up - Neophema Pulchella</title>
     <link rel="stylesheet" href="../static/css/sign_up_style.css">
+    <script src="../static/js/sign_up/validaciones.js"></script>
 </head>
 <body>
     <div class="contenedor">
@@ -13,7 +14,8 @@
             <h1 id="titulo">Sign up</h1>
         </div>
         <div class="form_tabla">
-            <form id="formulario" method="GET">
+            {% block content %}
+            <form id="formulario" method="POST">
                 <div class="arrow1">
                     <div class="celda">
                         <input name="nombre" id="nombre" class="inputs" type="text" placeholder="Nombre" required="True">
@@ -35,15 +37,15 @@
                 </div>  
                 <div class="arrow4">
                     <div class="celda">
-                        <input name="sexo" id="masculino" class="inputs_radio" type="radio" required="True"> 
+                        <input name="sexo" id="masculino" value="masculino" class="inputs_radio" type="radio" required="True"> 
                         <label for="masculino">Masculino</label>
                     </div>
                     <div class="celda">
-                        <input name="sexo" id="femenino" class="inputs_radio" type="radio">
+                        <input name="sexo" id="femenino" value="femenino" class="inputs_radio" type="radio">
                         <label for="femenino">Femenino</label>
                     </div>
                     <div class="celda">
-                        <input name="sexo" id="no_especificar" class="inputs_radio" type="radio">
+                        <input name="sexo" id="no_especificar" value="sin_especificar" class="inputs_radio" type="radio">
                         <label for="no_especificar">No especificar</label>
                     </div>
                 </div>    
@@ -66,6 +68,7 @@
                 </div>  
                 <p id="opcion_login">Ya estás registrado? Haz <a href="sign_in"><i>Login</i></a> :D</p>
             </form>
+            {% endblock %}
         </div>   
     </div>
 </body>
