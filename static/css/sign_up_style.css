@@ -197,6 +197,7 @@ input:checked + .slider:before {
     width: 255px;
     height: 51px;
     background-color: #76B91A;
+    font-family: 'Open Sans', sans-serif;
     color: #ffffff;
     border: none;
     cursor: pointer
