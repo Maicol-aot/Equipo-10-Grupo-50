@@ -54,10 +54,16 @@ body{
 .arrow2{
     margin: auto;
     margin-left: 62px;
+    margin-bottom: 25px;
+}
+
+.arrow3{
+    margin: auto;
+    margin-left: 62px;
     margin-bottom: 15px;
 }
 
-.arrow3 #sexo{
+.arrow4 #sexo{
     margin: auto;
     margin-left: 62px;
     margin-bottom: 4px; 
@@ -66,10 +72,10 @@ body{
     color: #575757; 
 }
 
-.arrow4{
+.arrow5{
     margin: auto;
     margin-left: 62px;
-    margin-bottom: 17px;
+    margin-bottom: 40px;
 }
 
 .inputs_radio{
@@ -79,16 +85,10 @@ body{
     margin: 0px 5px 0px 0px;
 }
 
-.arrow4 label{
+.arrow5 label{
     margin: 0px 26px 0px 0px;
     font-family: 'Open Sans', sans-serif; 
     color: #575757;
-}
-
-.arrow5{
-    margin: auto;
-    margin-left: 62px;
-    margin-bottom: 25px;
 }
 
 .arrow6{
@@ -96,7 +96,6 @@ body{
     margin-left: 62px;
     margin-bottom: 25px;
 }
-
 
 ::placeholder{
     color:#8f8f8f;

@@ -14,6 +14,7 @@ def signup():
     if request.method=="POST":
         nombre=request.form['nombre']
         apellido=request.form['apellido']
+        username=request.form['username']
         email=request.form['email']
         password=request.form['password']
         sexo=request.form['sexo']
@@ -24,7 +25,7 @@ def signup():
             error="La contaseña debe contener minimo 8 caracteres"
             return(error)
 
-        return jsonify({'nombre':nombre, 'apellido':apellido, 'email':email, 'password':password, 'sexo':sexo, 'edad': edad})
+        return jsonify({'nombre':nombre, 'usr':username, 'apellido':apellido, 'email':email, 'password':password, 'sexo':sexo, 'edad': edad})
     else:
         return render_template('sign_up.html')
     
