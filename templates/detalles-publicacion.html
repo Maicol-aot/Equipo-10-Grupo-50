@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles publicacion</title>
     <link rel="stylesheet" href="../static/css/detalles-publicacion.css">
+    <script src="../static/js/detalles_publicacion/enviarComentario.js"></script>
 </head>
 <body>
     <header>
@@ -75,7 +76,10 @@
                     </div>
                 </div>   
                 <div class="caja-de-comentario">
-                    <textarea name="" class="escribir-comentario" id="" placeholder="Escribir comentario"></textarea>
+                    <form action="" id="formID" method="post">
+                        <textarea name="comentario" class="escribir-comentario" id="comentario" onkeypress="return checkearTecla(event)" placeholder="Escribir comentario"></textarea>
+                    </form>
+                    
                 </div>
             </div>
         </div>

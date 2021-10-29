@@ -39,7 +39,7 @@ def signup():
             db.execute('INSERT INTO usuarios(nombre, apellido, username, email, password, sexo, edad) VALUES (?,?,?,?,?,?,?)', (nombre, apellido, username, email, password, sexo, edad))
             db.cursor()
             db.commit()
-            return redirect("usuario", usr=username)
+            return redirect(url_for("perfil_usuario", usr=username))
     else:
         return render_template('sign_up.html')
     
