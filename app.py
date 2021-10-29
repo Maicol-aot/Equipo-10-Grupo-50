@@ -1,6 +1,7 @@
 import os
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request, flash, redirect, url_for
 from flask.json import jsonify
+from db import get_db, close_db
 
 app=Flask(__name__)
 app.secret_key=os.urandom(24)
@@ -20,12 +21,25 @@ def signup():
         sexo=request.form['sexo']
         edad=request.form['edad']
 
+        db=get_db()
+
         if len(password) < 8:
             print('no es valido')
             error="La contaseña debe contener minimo 8 caracteres"
             return(error)
 
-        return jsonify({'nombre':nombre, 'usr':username, 'apellido':apellido, 'email':email, 'password':password, 'sexo':sexo, 'edad': edad})
+        if db.execute(' SELECT id FROM usuarios WHERE username = ?', (username,)).fetchone()is not None: 
+            error = " El nombre de usuario ya existe"
+            return (error)
+
+        if db.execute(' SELECT id FROM usuarios WHERE email = ?', (email,)).fetchone()is not None: 
+            error = " El Correo ya existe".format( email )
+            return (error)
+        else:
+            db.execute('INSERT INTO usuarios(nombre, apellido, username, email, password, sexo, edad) VALUES (?,?,?,?,?,?,?)', (nombre, apellido, username, email, password, sexo, edad))
+            db.cursor()
+            db.commit()
+            return redirect("usuario", usr=username)
     else:
         return render_template('sign_up.html')
     
@@ -42,8 +56,8 @@ def feed():
 def publicacion(id_publicacion):
     return render_template('/detalles-publicacion.html')
 
-@app.route("/perfil_usuario", methods=["GET", "POST"])
-def perfil_usuario():
+@app.route("/perfil_usuario/<usr>", methods=["GET", "POST"])
+def perfil_usuario(usr):
     return render_template('/perfil_usuario.html')
 
 @app.route("/administrador", methods=["GET", "POST"])
