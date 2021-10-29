@@ -1,0 +1,4 @@
+
+.icon-heart-empty:before { content: '\e800'; } /* '' */
+.icon-comment:before { content: '\e801'; } /* '' */
+.icon-upload:before { content: '\e802'; } /* '' */
