@@ -2,6 +2,8 @@ import os
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 from flask.json import jsonify
 from db import get_db, close_db
+import base64
+
 
 app=Flask(__name__)
 app.secret_key=os.urandom(24)
@@ -39,12 +41,12 @@ def signup():
             db.execute('INSERT INTO usuarios(nombre, apellido, username, email, password, sexo, edad) VALUES (?,?,?,?,?,?,?)', (nombre, apellido, username, email, password, sexo, edad))
             db.cursor()
             db.commit()
-            return redirect('/feed.html')
+            return redirect(url_for('feed'))
     else:
-        return render_template('sign_up.html')
+        return render_template('/sign_up.html')
     
 @app.route("/sign_in", methods=["GET", "POST"])
-def login():
+def sign_in():
     if request.method=='POST':
         email= request.form['email']
         password= request.form['password']  
@@ -55,7 +57,7 @@ def login():
             username = (db.execute(' SELECT username FROM usuarios WHERE email = ?', (email,)).fetchone())
             username = username[0]
             session["username"] = username
-            return redirect('feed')
+            return redirect(url_for('feed'))
         else:
             error = " El Correo y/o contraseña no existe".format( email )
             return (error)
@@ -68,7 +70,7 @@ def feed():
     if "username" in session:
         return render_template('/feed.html')
     else:
-        return redirect('sign_in')
+        return redirect(url_for('sign_in'))
 
 @app.route("/publicacion/<id_publicacion>", methods=["GET"])
 def publicacion(id_publicacion):
@@ -77,9 +79,27 @@ def publicacion(id_publicacion):
 @app.route("/perfil_usuario/<usr>", methods=["GET", "POST"])
 def perfil_usuario(usr):
     if "username" in session:
+        print(usr)
+        if request.method=='POST':
+            db=get_db()
+            image = request.files['upload'].read()
+            db.execute('INSERT INTO publicaciones(user, imagen) VALUES (?,?)', (usr, image))
+            db.cursor()
+            db.commit()
         return render_template('/perfil_usuario.html')
     else:
-        return redirect('sign_in')
+        return redirect(url_for('sign_in'))
+
+#@app.route('/mirar/<usr>')
+#def mirar(usr):
+ #   db=get_db()
+  #  a=(db.execute(' SELECT imagen FROM publicaciones WHERE user = ?', (usr,)).fetchone())
+    
+   # image_64_decode = base64.decodebytes()
+
+
+    #return (f'Hola{image_64_decode}')
+
 
 @app.route("/administrador", methods=["GET", "POST"])
 def administrador():
