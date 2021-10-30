@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, session
 from flask.json import jsonify
 from db import get_db, close_db
 
@@ -39,18 +39,36 @@ def signup():
             db.execute('INSERT INTO usuarios(nombre, apellido, username, email, password, sexo, edad) VALUES (?,?,?,?,?,?,?)', (nombre, apellido, username, email, password, sexo, edad))
             db.cursor()
             db.commit()
-            return redirect(url_for("perfil_usuario", usr=username))
+            return redirect('/feed.html')
     else:
         return render_template('sign_up.html')
     
-
 @app.route("/sign_in", methods=["GET", "POST"])
 def login():
-    return render_template('sign_in.html')
+    if request.method=='POST':
+        email= request.form['email']
+        password= request.form['password']  
+
+        db = get_db()
+
+        if db.execute(' SELECT id FROM usuarios WHERE email = ? AND password = ?', (email,password)).fetchone()is not None: 
+            username = (db.execute(' SELECT username FROM usuarios WHERE email = ?', (email,)).fetchone())
+            username = username[0]
+            session["username"] = username
+            return redirect('feed')
+        else:
+            error = " El Correo y/o contraseña no existe".format( email )
+            return (error)
+    else:
+        return render_template('/sign_in.html')
+
 
 @app.route("/feed", methods=["GET"])
 def feed():
-    return render_template('/feed.html')
+    if "username" in session:
+        return render_template('/feed.html')
+    else:
+        return redirect('sign_in')
 
 @app.route("/publicacion/<id_publicacion>", methods=["GET"])
 def publicacion(id_publicacion):
@@ -58,7 +76,10 @@ def publicacion(id_publicacion):
 
 @app.route("/perfil_usuario/<usr>", methods=["GET", "POST"])
 def perfil_usuario(usr):
-    return render_template('/perfil_usuario.html')
+    if "username" in session:
+        return render_template('/perfil_usuario.html')
+    else:
+        return redirect('sign_in')
 
 @app.route("/administrador", methods=["GET", "POST"])
 def administrador():
