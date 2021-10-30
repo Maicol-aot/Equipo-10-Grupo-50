@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/perfil_usuario.css">
     <link rel="stylesheet" href="../static/iconos/fontello-cda8bb40/css/iconos.css">
+    <script src="../static/js/perfil_usuario/ventana.js"></script>
+    <script src="../static/js/perfil_usuario/cargar.js"></script>
     <title>Document</title>
 </head>
-<body>
+<body onload="cargarImg()">
+
+
+    
     <header>
         <nav class="nav"> 
             <a class="home" href="feed"><img src="../static/images/logo_nav.png" alt="Logo home"></a>
@@ -24,12 +29,26 @@
             <div class="border-line"></div>
         </nav>
     </header>
+
+    <div class="ventana" id="ventana">
+        <div class="close-icon">
+            <img onclick="cerrarVent()" src="../static/images/close.png" alt="">
+        </div>
+        <div class="display_Img">
+
+        </div>
+        <form class="upload_Form" method="POST">
+            <label for="upload" class="icon-upload" id="icon-upload"></label>
+            <input type="file"  name="upload" id="upload" class="upload_button" required="">  
+            <input type="submit" class="enviar_img" value="Subir imagen">          
+        </form>
+
+    </div>
     
     <div class="informacion_Usuario">
         <img src="../static/images/foto-perfil-publicacion3.jpg" clas="foto_perfil" alt="">
         <p class="info-username">Usuario_67893</p>
-        <label for="upload" class="icon-upload"></label>
-        <input type="file" name="upload" id="upload" class="upload_button">
+        <i class="icon-upload" onclick="abrirVent()"></i>
     </div>
     <div class="box">
         <img name="publicacion" id="publicacion" src="../static/images/publicacion3.jpg" alt="">
